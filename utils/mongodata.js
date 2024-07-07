@@ -17,13 +17,14 @@ export const getPosts = async () => {
 export const getPost = async (id) => {
     try {
         await connectToDatabase();
-        const post = await Post.findOne({ id });
+        const post = await Post.findOne({ _id: id});
         return post;
     } catch (error) {
         console.log('Error in getPost: ', error);
         throw new Error("Failed to fetch post", error);
     }
-}
+} 
+
 
 // get all users
 export const getUsers = async () => {
